@@ -1,4 +1,4 @@
-package lab2;
+package labJava;
 
 public class RegistroTempoOnline {
     private String nomeDisciplina;
@@ -6,13 +6,10 @@ public class RegistroTempoOnline {
     private int tempoEsperado;
 
     public RegistroTempoOnline(String nomeDisciplina) {
-        this.nomeDisciplina = nomeDisciplina;
-        this.tempoOnline = 0;
-        this.tempoEsperado = 120;
+        this(nomeDisciplina, 120);
     }
-    public RegistroTempoOnline(String nomeDisciplina, int tempoOnline, int tempoOnlineEsperado){
+    public RegistroTempoOnline(String nomeDisciplina ,int tempoOnlineEsperado){
         this.nomeDisciplina = nomeDisciplina;
-        this.tempoOnline = 0;
         this.tempoEsperado = tempoOnlineEsperado;
     }
     public void adicionaTempoOnline(int tempoOnline){
