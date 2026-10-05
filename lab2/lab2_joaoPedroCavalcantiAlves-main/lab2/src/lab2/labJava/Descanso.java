@@ -1,4 +1,4 @@
-package lab2;
+package labJava;
 
 public class Descanso {
     private int horasDescanso;

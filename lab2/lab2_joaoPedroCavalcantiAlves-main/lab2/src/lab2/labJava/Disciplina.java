@@ -1,4 +1,4 @@
-package lab2;
+package labJava;
 
 public class Disciplina {
     private String nomeDisciplina;
