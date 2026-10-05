@@ -12,14 +12,17 @@ public class Disciplina {
         this.nota = 0;
         this.valorNota = 0;
     }
+
     public void cadastraHoras(int horasEstudo) {
         this.horasEstudo += horasEstudo;
     }
+
     public void cadastraNota(int nota) {
         this.nota++;
         this.valorNota += nota;
     }
-    public boolean aprovado(){
+
+    public boolean aprovado() {
         if (nota == 0) {
             return false;
         }
@@ -27,6 +30,11 @@ public class Disciplina {
 
     }
 
-
-
+    public String toString() {
+        double media = 0.0;
+        if (notas > 0) {
+            media = valorNota / nota;
+        }
+        return nomeDisciplina + " " + horasEstudo + " " + media;
+    }
 }
