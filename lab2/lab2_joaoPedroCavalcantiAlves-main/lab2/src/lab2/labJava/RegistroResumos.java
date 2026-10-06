@@ -14,15 +14,15 @@ public class RegistroResumos {
     }
     public void adiciona(String tema, String conteudo) {
         for (int i = 0; i < this.quantidade; i++) {
-            if (this.temas[i].equals(tema)) {
-                this.conteudos[i] = conteudo;
+            if (this.tema[i].equals(tema)) {
+                this.conteudo[i] = conteudo;
                 return;
             }
         }
-        this.temas[this.proximaPosicao] = tema;
-        this.conteudos[this.proximaPosicao] = conteudo;
-        this.proximaPosicao = (this.proximaPosicao + 1) % this.temas.length;
-        if (this.quantidade < this.temas.length) {
+        this.tema[this.proximaPosicao] = tema;
+        this.conteudo[this.proximaPosicao] = conteudo;
+        this.proximaPosicao = (this.proximaPosicao + 1) % this.tema.length;
+        if (this.quantidade < this.tema.length) {
             this.quantidade++;
         }
     }
@@ -34,7 +34,7 @@ public class RegistroResumos {
     public String[] pegaResumos() {
         String[] resumos = new String[this.quantidade];
         for (int i = 0; i < this.quantidade; i++) {
-            resumos[i] = this.temas[i] + ": " + this.conteudos[i];
+            resumos[i] = this.tema[i] + ": " + this.conteudo[i];
         }
         return resumos;
     }
@@ -46,7 +46,7 @@ public class RegistroResumos {
             if (i > 0) {
                 sb.append(" | ");
             }
-            sb.append(this.temas[i]);
+            sb.append(this.tema[i]);
         }
         return sb.toString();
     }
@@ -61,7 +61,7 @@ public class RegistroResumos {
 
     public boolean temResumo(String tema) {
         for (int i = 0; i < this.quantidade; i++) {
-            if (this.temas[i].equals(tema)) {
+            if (this.tema[i].equals(tema)) {
                 return true;
             }
         }
