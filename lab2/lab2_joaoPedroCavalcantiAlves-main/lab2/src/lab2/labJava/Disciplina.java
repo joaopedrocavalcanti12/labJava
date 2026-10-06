@@ -1,9 +1,12 @@
 package lab2.labJava;
 
+import java.util.Arrays;
+
 public class Disciplina {
     private String nomeDisciplina;
     private int horasEstudo;
-    private double nota[];;
+    private double nota[];
+    ;
 
     public Disciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
@@ -12,15 +15,15 @@ public class Disciplina {
     }
 
     public void cadastraHoras(int horasEstudo) {
-
         this.horasEstudo += horasEstudo;
     }
 
-    public void cadastraNota(int nota,double valorNota) {
-        if (nota >=1 && nota <= 4) {
+    public void cadastraNota(int nota, double valorNota) {
+        if (nota >= 1 && nota <= 4) {
             this.nota[nota - 1] = valorNota;
         }
     }
+
     private double calculaMedia() {
         double soma = 0;
         for (double n : this.nota) {
@@ -31,10 +34,10 @@ public class Disciplina {
 
     public boolean aprovado() {
         return calculaMedia() >= 7.0;
-        }
     }
 
     public String toString() {
         return this.nomeDisciplina + " " + this.horasEstudo + " " + calculaMedia() + " " + Arrays.toString(this.nota);
     }
 }
+
