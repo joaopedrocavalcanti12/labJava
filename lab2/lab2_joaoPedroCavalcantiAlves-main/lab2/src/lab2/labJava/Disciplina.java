@@ -3,38 +3,38 @@ package labJava;
 public class Disciplina {
     private String nomeDisciplina;
     private int horasEstudo;
-    private int nota;
-    private double valorNota;
+    private double nota[];;
 
     public Disciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
         this.horasEstudo = 0;
-        this.nota = 0;
-        this.valorNota = 0;
+        this.nota = new double[4];
     }
 
     public void cadastraHoras(int horasEstudo) {
+
         this.horasEstudo += horasEstudo;
     }
 
-    public void cadastraNota(int nota) {
-        this.nota++;
-        this.valorNota += nota;
+    public void cadastraNota(int nota,double valorNota) {
+        if (nota >=1 && nota <= 4) {
+            this.nota[nota - 1] = valorNota;
+        }
+    }
+    private double calculaMedia() {
+        double soma = 0;
+        for (double n : this.nota) {
+            soma += n;
+        }
+        return soma / 4;
     }
 
     public boolean aprovado() {
-        if (nota == 0) {
-            return false;
+        return calculaMedia() >= 7.0;
         }
-        return (valorNota / nota) >= 7.0;
-
     }
 
     public String toString() {
-        double media = 0.0;
-        if (notas > 0) {
-            media = valorNota / nota;
-        }
-        return nomeDisciplina + " " + horasEstudo + " " + media;
+        return this.nomeDisciplina + " " + this.horasEstudo + " " + calculaMedia() + " " + Arrays.toString(this.nota);
     }
 }
