@@ -1,4 +1,4 @@
-package labJava;
+package lab2.labJava;
 
 public class Coisa {
     public static void main(String[] args) {

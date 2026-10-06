@@ -1,10 +1,10 @@
-package labJava;
+package lab2.labJava;
 
 public class Descanso {
     private int horasDescanso;
     private int numerosSemana;
 
-    public void defineHorasDescanso(int valor {
+    public void defineHorasDescanso(int valor) {
         this.horasDescanso = valor;
     }
     public void defineNumerosSemana(int valor) {

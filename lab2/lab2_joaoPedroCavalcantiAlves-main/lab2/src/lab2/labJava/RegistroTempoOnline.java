@@ -1,4 +1,4 @@
-package labJava;
+package lab2.labJava;
 
 public class RegistroTempoOnline {
     private String nomeDisciplina;
