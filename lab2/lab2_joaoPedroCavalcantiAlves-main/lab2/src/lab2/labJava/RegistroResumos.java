@@ -1,71 +1,107 @@
 package lab2.labJava;
 
+import java.util.Arrays;
+
 public class RegistroResumos {
-    private String[] resumo;
-    private String[] tema;
-    private String[] conteudo;
+
+    private Resumo[] resumos;
+    private int quantidadeResumos;
     private int proximaPosicao;
-    private int quantidade;
 
     public RegistroResumos(int numeroDeResumos) {
-        this.tema = new String[numeroDeResumos];
-        this.conteudo = new String[numeroDeResumos];
+        this.resumos = new Resumo[numeroDeResumos];
+        this.quantidadeResumos = 0;
         this.proximaPosicao = 0;
-        this.quantidade = 0;
-    }
-    public void adiciona(String tema, String conteudo) {
-        for (int i = 0; i < this.quantidade; i++) {
-            if (this.tema[i].equals(tema)) {
-                this.conteudo[i] = conteudo;
-                return;
-            }
-        }
-        this.tema[this.proximaPosicao] = tema;
-        this.conteudo[this.proximaPosicao] = conteudo;
-        this.proximaPosicao = (this.proximaPosicao + 1) % this.tema.length;
-        if (this.quantidade < this.tema.length) {
-            this.quantidade++;
-        }
     }
 
-    public void adicionaResumo(String tema, String conteudo) {
-        adiciona(tema, conteudo);
+    public void adiciona(String tema, String conteudo) {
+
+        if (!temResumo(tema)) {
+
+            resumos[proximaPosicao] = new Resumo(tema, conteudo);
+
+            if (quantidadeResumos < resumos.length) {
+                quantidadeResumos++;
+            }
+
+            proximaPosicao++;
+
+            if (proximaPosicao == resumos.length) {
+                proximaPosicao = 0;
+            }
+        }
     }
 
     public String[] pegaResumos() {
-        String[] resumos = new String[this.quantidade];
-        for (int i = 0; i < this.quantidade; i++) {
-            resumos[i] = this.tema[i] + ": " + this.conteudo[i];
+
+        String[] resultado = new String[quantidadeResumos];
+
+        for (int i = 0; i < quantidadeResumos; i++) {
+            resultado[i] = resumos[i].getTema()
+                    + ": "
+                    + resumos[i].getConteudo();
         }
-        return resumos;
+
+        return resultado;
     }
 
     public String imprimeResumos() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("- ").append(this.quantidade).append(" resumo(s) cadastrado(s)\n- ");
-        for (int i = 0; i < this.quantidade; i++) {
-            if (i > 0) {
-                sb.append(" | ");
+
+        String resultado = "- " + quantidadeResumos
+                + " resumo(s) cadastrado(s)\n";
+
+        resultado += "- ";
+
+        for (int i = 0; i < quantidadeResumos; i++) {
+
+            resultado += resumos[i].getTema();
+
+            if (i < quantidadeResumos - 1) {
+                resultado += " | ";
             }
-            sb.append(this.tema[i]);
         }
-        return sb.toString();
+
+        return resultado;
     }
 
     public int conta() {
-        return this.quantidade;
-    }
-
-    public int contaResumos() {
-        return conta();
+        return quantidadeResumos;
     }
 
     public boolean temResumo(String tema) {
-        for (int i = 0; i < this.quantidade; i++) {
-            if (this.tema[i].equals(tema)) {
+
+        for (int i = 0; i < quantidadeResumos; i++) {
+
+            if (resumos[i].getTema().equals(tema)) {
                 return true;
             }
         }
+
         return false;
+    }
+
+    public String[] busca(String chaveDeBusca) {
+
+        String[] resultado = new String[quantidadeResumos];
+        int quantidadeEncontrada = 0;
+
+        for (int i = 0; i < quantidadeResumos; i++) {
+
+            String conteudo = resumos[i].getConteudo().toLowerCase();
+
+            if (conteudo.contains(chaveDeBusca.toLowerCase())) {
+
+                resultado[quantidadeEncontrada] =
+                        resumos[i].getTema();
+
+                quantidadeEncontrada++;
+            }
+        }
+
+        resultado = Arrays.copyOf(resultado, quantidadeEncontrada);
+
+        Arrays.sort(resultado);
+
+        return resultado;
     }
 }
