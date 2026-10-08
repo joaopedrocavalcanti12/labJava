@@ -1,6 +1,7 @@
 package lab2.labJava;
 
 public class RegistroResumos {
+    private String[] resumo;
     private String[] tema;
     private String[] conteudo;
     private int proximaPosicao;
