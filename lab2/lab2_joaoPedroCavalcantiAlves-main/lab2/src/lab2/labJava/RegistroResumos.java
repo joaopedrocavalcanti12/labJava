@@ -3,7 +3,6 @@ package lab2.labJava;
 import java.util.Arrays;
 
 public class RegistroResumos {
-
     private Resumo[] resumos;
     private int quantidadeResumos;
     private int proximaPosicao;
