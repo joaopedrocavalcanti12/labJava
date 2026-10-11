@@ -1,7 +1,6 @@
 package lab2.labJava;
 
 import java.util.Arrays;
-
 /**
  * Registro de resumos de estudo com capacidade limitada. Ao adicionar um
  * resumo com o registro cheio, o primeiro resumo cadastrado é substituído;
@@ -41,7 +40,7 @@ public class RegistroResumos {
      * @param tema     o tema do resumo
      * @param conteudo o conteúdo do resumo
      */
-    public void adiciona(String tema, String conteudo) {
+    public void adicionaResumo(String tema, String conteudo) {
 
         if (!temResumo(tema)) {
 
@@ -110,7 +109,7 @@ public class RegistroResumos {
      *
      * @return a quantidade de resumos cadastrados
      */
-    public int conta() {
+    public int contaResumos() {
         return quantidadeResumos;
     }
 
