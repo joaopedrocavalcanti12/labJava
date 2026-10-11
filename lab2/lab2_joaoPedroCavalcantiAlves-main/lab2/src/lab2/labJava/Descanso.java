@@ -45,5 +45,4 @@ public class Descanso {
             return "cansado";
         }
     }
-
 }
