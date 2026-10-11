@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 /**
  * Representa uma disciplina cursada por um aluno, com horas de estudo e
- * notas. Por padrão a disciplina possui 4 notas e a média é aritmética (sem
- * arredondamento). Também é possível criar disciplinas com outro número de
+ * notas. Por padrão a disciplina possui 4 notas e a média é aritmética.
+ * Também é possível criar disciplinas com outro número de
  * notas e, opcionalmente, com pesos para o cálculo de uma média ponderada.
  * Notas não cadastradas valem zero e o aluno é aprovado com média maior ou
  * igual a 7.0.
@@ -15,16 +15,9 @@ import java.util.Arrays;
  */
 public class Disciplina {
 
-    /** Nome da disciplina. */
     private String nomeDisciplina;
-
-    /** Horas de estudo acumuladas na disciplina. */
     private int horasEstudo;
-
-    /** Notas da disciplina. A posição 0 guarda a nota 1, e assim por diante. */
     private double nota[];
-
-    /** Pesos de cada nota para a média ponderada. Se for nulo, a média é aritmética. */
     private int pesos[];
 
     /**

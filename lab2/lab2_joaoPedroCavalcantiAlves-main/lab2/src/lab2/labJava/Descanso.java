@@ -10,10 +10,7 @@ package lab2.labJava;
  */
 public class Descanso {
 
-    /** Total de horas de descanso registradas. */
     private int horasDescanso;
-
-    /** Número de semanas em que as horas de descanso foram acumuladas. */
     private int numeroSemanas;
 
     /**

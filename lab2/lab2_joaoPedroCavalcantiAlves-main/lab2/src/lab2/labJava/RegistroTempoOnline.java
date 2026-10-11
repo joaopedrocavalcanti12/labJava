@@ -10,13 +10,8 @@ package lab2.labJava;
  */
 public class RegistroTempoOnline {
 
-    /** Nome da disciplina remota. */
     private String nomeDisciplina;
-
-    /** Tempo online já utilizado na disciplina, em horas. */
     private int tempoOnline;
-
-    /** Tempo online esperado para a disciplina, em horas. */
     private int tempoOnlineEsperado;
 
     /**

@@ -9,10 +9,7 @@ package lab2.labJava;
  */
 public class Resumo {
 
-    /** Tema do resumo. */
     private String tema;
-
-    /** Conteúdo (texto, descrição ou anotação) referente ao tema. */
     private String conteudo;
 
     /**

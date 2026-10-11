@@ -11,13 +11,8 @@ import java.util.Arrays;
  */
 public class RegistroResumos {
 
-    /** Resumos armazenados. O tamanho do array é a capacidade do registro. */
     private Resumo[] resumos;
-
-    /** Quantidade de resumos armazenados no momento. */
     private int quantidadeResumos;
-
-    /** Posição onde será guardado o próximo resumo (ou substituído, se estiver cheio). */
     private int proximaPosicao;
 
     /**
